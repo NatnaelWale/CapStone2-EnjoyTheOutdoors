@@ -681,9 +681,12 @@ section {
   margin-bottom: 50px;
   text-align: center;
   border: 1px solid #e6e6e6;
-  height: 330px;
+  min-height: 330px;
   position: relative;
   background: #fafafa;
+}
+.mainBox:has(div:hover) div:not(:hover) {
+  filter: blur(4px)
 }
 
 #services .icon {

@@ -1,0 +1,14 @@
+#mountainsListRow .col-lg-3{
+    margin-bottom: 20px;
+}
+
+.card {
+    transition: all 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+#logo a{
+    text-decoration: none !important;
+}
