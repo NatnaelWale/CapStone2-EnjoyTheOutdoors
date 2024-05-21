@@ -50,8 +50,6 @@ function populateStateList() {
     });
     dropdownDisplay.appendChild(selectState);
 
-
-
 }
 
 function populateParkTypeList() {
@@ -70,10 +68,48 @@ function populateParkTypeList() {
 
 }
 
-// function populateAllParks(){
-//     nationalParksArray.forEach(park => {
-//         const parkName = document.createElement("table");
-//         parkName.className = "table table-striped table-hover";
-//         dropdownDisplay.appendChild(parkName);
-//     })
-// }
+function populateAllParks(){
+
+        // Let's create a table to display the result
+        const parkTable = document.createElement("table");
+        parkTable.className = "table table-striped table-hover border mt-5";
+        dropdownDisplay.appendChild(parkTable);
+
+        const parkTableHead = document.createElement("thead");
+        parkTableHead.className = "table-dark";
+
+        const parkTableBody = document.createElement("tbody");
+        parkTableBody.className = "table-group-divider";
+
+        // Let's create the header row
+        const parkTableHeaderRow = document.createElement("tr");
+        const headers = ["Location Name", "Location ID", "Location Address"];
+        headers.forEach(text => {
+            const header = document.createElement("th");
+            header.textContent = text;
+            parkTableHeaderRow.appendChild(header);
+        });
+        parkTableHead.appendChild(parkTableHeaderRow);
+        parkTable.appendChild(parkTableHead);
+
+        //Let's now fill in the data into the table
+        nationalParksArray.forEach(park => {
+            const parkTableRow = document.createElement("tr");
+            const nameCell = document.createElement("td");
+            nameCell.className = "w-50"
+            nameCell.textContent = park.LocationName;
+            const idCell = document.createElement("td");
+            idCell.className = "w-25"
+            idCell.textContent = park.LocationID;
+            const addressCell = document.createElement("td");
+            addressCell.textContent = park.Address;
+
+            parkTableRow.appendChild(nameCell);
+            parkTableRow.appendChild(idCell);
+            parkTableRow.appendChild(addressCell);
+            parkTableBody.appendChild(parkTableRow);
+        });
+
+        parkTable.appendChild(parkTableBody);
+        dropdownDisplay.appendChild(parkTable);
+}
