@@ -16,6 +16,10 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
 
+  <!-- Font awesome-->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+
   <!--  CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,6 +30,9 @@
 
   <!--  Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Custom CSS File-->
+  <link href="CSS/nationalPark.css" rel="stylesheet">
 
 </head>
 
@@ -68,34 +75,52 @@
 
     <section class="inner-page pt-4">
       <div class="container">
-        <section id="services">
+        <div id="services">
           <div class="container" data-aos="fade-up">
             <div class="section-header">
               <h3 class="section-title">Search National Parks</h3>
               <p class="section-description">Choose how you want to search the national parks</p>
             </div>
-            <div class="row mainBox">
-              <div class="col-lg-6 col-md-6" data-aos="zoom-in" onclick="location.href='#'" id="searchByLocation">
-                <div class="box-2">
-                  <span class="icon"><i class="bi bi-geo-fill"></i></span>
-                  <h4 class="title"class="fill-div">Search by Location</h4>
-                  <p class="description">Discover the natural beauty of the United States through our easy-to-use interactive map. Whether you're planning a serene hiking trip or a thrilling outdoor adventure, our platform enables you to select and explore national parks by state or territory. Simply choose your desired location from a comprehensive list of all U.S. states and territories, and you'll be presented with a selection of national parks available in that region.
-                  </p>
-                  <input type="radio" name="selectNationalPark" checked id="searchByLocationBtn"></input>
+            <div class="row">
+              <div class="col-lg-4" data-aos="zoom-in" onclick="location.href='#'" id="searchByLocation">
+                <div>
+                  <input type="radio" id="location" name="select">
+                  <label for="location" class="switchLocation">
+                    <h3><strong>Search by Location</strong></h3>
+                    <p class="description pt-2">Discover the natural beauty of the United States through our easy-to-use interactive map. Whether you're planning a serene hiking trip or a thrilling outdoor adventure, our platform enables you to select and explore national parks by state or territory. Simply choose your desired location from a comprehensive list of all U.S. states and territories, and you'll be presented with a selection of national parks available in that region.
+                    </p>
+                  </label>
                 </div>
               </div>
-              <div class="col-lg-6 col-md-6" data-aos="zoom-in" onclick="location.href='#'" id="searchByParkType">
-                <div class="box-2">
-                  <span class="icon"><i class="bi bi-code-square"></i></span>
-                  <h4 class="title">Search by Park Type</h4>
-                  <p class="description">Embark on a journey through the diverse landscapes of the United States with our user-friendly interactive tool. Whether you seek the tranquility of lush forests, the grandeur of mountain ranges, or the unique ecosystems of deserts and wetlands, our platform allows you to select and explore national parks based on their type. Simply pick a park type from our comprehensive list, and discover all the national parks that match your interest.
-                  </p>
-                  <input type="radio" name="selectNationalPark" id="searchByTypeBtn"></input>
+              <div class="col-lg-4" data-aos="zoom-in" onclick="location.href='#'" id="searchByParkType">
+                <div>
+                  <input type="radio" id="parkType" name="select">
+                  <label for="parkType" class="switchParkType">
+                    <h3><strong>Search by Park Type</strong></h3>
+                    <p class="description pt-2">Embark on a journey through the diverse landscapes of the United States with our user-friendly interactive tool. Whether you seek the tranquility of lush forests, the grandeur of mountain ranges, or the unique ecosystems of deserts and wetlands, our platform allows you to select and explore national parks based on their type. Simply pick a park type from our comprehensive list, and discover all the national parks that match your interest.
+                    </p>
+                  </label>
+                </div>
+              </div>
+              <div class="col-lg-4" data-aos="zoom-in" onclick="location.href='#'" id="searchByParkType">
+                <div>
+                  <input type="radio" id="displayAll" name="select">
+                  <label for="displayAll" class="switchAllParks">
+                    <h3><strong>Display all Parks</strong></h3>
+                    <p class="description pt-2">Discover the stunning diversity and natural beauty of America’s national parks. From the rugged peaks of the Rocky Mountains to the lush swamps of the Everglades, each park offers a unique window into the varied landscapes and ecosystems that make up the United States. This section provides detailed information on every national park, including key attractions, trails, wildlife, and conservation efforts, helping you plan your next adventure.
+                    </p>
+                  </label>
                 </div>
               </div>
             </div>
+            <div id="dropdownDisplay">
+
+            </div>
+            <div id="resultDisplay">
+
+            </div>
           </div>
-        </section>
+        </div>
       </div>
     </section>
 
