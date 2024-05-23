@@ -1,15 +1,12 @@
 "use strict";
 
+const mountainsListRow = document.getElementById("mountainsListRow");
 
-window.onload = () => {
-    const mountainsListRow = document.getElementById("mountainsListRow");
-    console.log("onload");
-    mountainsArray.forEach((mountain, index) => {
-        let mountainColumnElement = createMountainColumnElement(mountain, index);
-        mountainsListRow.appendChild(mountainColumnElement);
-    });
-};
 
+mountainsArray.forEach((mountain, index) => {
+    let mountainColumnElement = createMountainColumnElement(mountain, index);
+    mountainsListRow.appendChild(mountainColumnElement);
+});
 
 
  function createMountainColumnElement(mountain, index) {
@@ -58,87 +55,33 @@ window.onload = () => {
     detailsDiv.id = "offcanvasDetails" + index;
     mountainColumnDiv.appendChild(detailsDiv);
 
+    //Let's get the latitude and longitude values to display the sunrise and sunset time of each mountains
+    // Used a javascript API found from https://drawne.com/javascript-sunset-times-api/
+
+    const latitude = mountain.coords.lat;
+    const longitude = mountain.coords.lng;
+    const url = `https://api.sunrisesunset.io/json?lat=${latitude}&lng=${longitude}`;
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        const sunRise = data.results.sunrise;
+        const sunSet = data.results.sunset;
+
     // Display various details on the off canvas
     let detailsContent = `
         <h3 class="mx-3 mt-5">Name: ${mountain.name}</h3>
         <h6 class="mx-3 mt-2"><strong>Effort:</strong> ${mountain.effort}</h6>
         <h6 class="mx-3 mt-2"><strong>Elevation:</strong> ${mountain.elevation} feet</h6>
-        <img src="images/${mountain.img}" class="card-img-top" alt="${mountain.name}">
-        <p class="offcanvas-body"><strong>Description:</strong> ${mountain.desc}</p>
+        <img src="images/${mountain.img}" class="card-img-top" alt="  ${mountain.name}">
+        <p class="offcanvas-body"><strong>Description:</strong>  ${mountain.desc}</p>
+        <p class="offcanvas-body"><strong>Sun Rise Time:</strong>  ${sunRise} UTC</p>
+        <p class="offcanvas-body"><strong>Sun Set Time:</strong>  ${sunSet} UTC</p>
     `;
     detailsDiv.innerHTML = detailsContent;
-
+    })
+    .catch(error => console.error('Error:', error))
 
 
     return mountainColumnDiv;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function createMountainColumnElement(mountain) {
-//   // Let's first create the carousel div
-//   let mountainCarouselDiv = document.createElement("div");
-//   mountainCarouselDiv.className = "carousel carousel-dark slide";
-//   mountainCarouselDiv.id = "carouselExampleDark";
-
-//   // Let's now create a div for the carousel indicators
-//   let mountainCarouselIndicator = document.createElement("div");
-//   mountainCarouselIndicator.className = "carousel-indicators";
-
-//   mountainCarouselDiv.appendChild(mountainCarouselIndicator);
-
-//   // Let's now create the buttons for the carousel indicators
-//   let mountainCarouselIndicatorButtons = document.createElement("button");
-//   mountainCarouselIndicatorButtons.type = "button";
-
-//   mountainCarouselIndicator.appendChild(mountainCarouselIndicatorButtons);
-
-//   // Let's now the create the inner carousel section
-//   let mountainCarouselInner = document.createElement("div");
-//   mountainCarouselInner.className = "carousel-inner";
-
-//   mountainCarouselDiv.appendChild(mountainCarouselInner);
-
-//   //Let's now create sections of the inner carousel
-//   let mountianCarouselItem = document.createElement("div");
-//   mountianCarouselItem.className = "carousel-item";
-
-//   mountainCarouselInner.appendChild(mountianCarouselItem);
-
-//   // Let's now add an image to the items in the inner carousel
-//   let mountainImage = document.createElement("img");
-//     mountainImage.src = "images/" + mountain.img;
-//     mountainImage.className = "d-block w-100";
-//     mountainImage.alt = mountain.name;
-
-//     // mountainCarouselInner.appendChild(mountainImage);
-
-//   return mountainCarouselDiv;
-// }
