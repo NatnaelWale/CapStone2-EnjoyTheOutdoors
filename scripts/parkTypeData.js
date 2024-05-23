@@ -13,3 +13,5 @@ const parkTypesArray = [
     "Trail",
     "Parkway"
 ]
+
+// console.log(parkTypesArray.length)

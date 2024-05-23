@@ -672,7 +672,7 @@ section {
   margin-bottom: 50px;
   text-align: center;
   border: 1px solid #e6e6e6;
-  height: 400px;
+  height: 300px;
   position: relative;
   background: #fafafa;
 }
@@ -687,6 +687,17 @@ section {
 }
 .mainBox:has(div:hover) div:not(:hover) {
   filter: blur(4px)
+}
+
+.hovernow {
+  background-color: red;
+  margin: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.hovernow:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
 }
 
 #services .icon {

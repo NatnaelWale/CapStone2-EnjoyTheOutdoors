@@ -55,3 +55,5 @@ const locationsArray = [
     "Wisconsin",
     "Wyoming"
 ]
+
+// console.log(locationsArray.length)

@@ -105,7 +105,7 @@ function populateAllParks(){
 
         // Let's create the header row
         const parkTableHeaderRow = document.createElement("tr");
-        const headers = ["Location Name", "Location Address"];
+        const headers = ["Location Name", "Location Address", "Visit"];
         headers.forEach(text => {
             const header = document.createElement("th");
             header.textContent = text;
@@ -122,6 +122,11 @@ function populateAllParks(){
 
             parkTableRow.appendChild(createCell(park.LocationName));
             parkTableRow.appendChild(createCell(park.Address));
+            if(park.Visit){
+                parkTableRow.appendChild(createVisitLink(park.Visit));
+            } else {
+                parkTableRow.appendChild(createCell(park.Visit));
+            }
             parkTableBody.appendChild(parkTableRow);
         });
 
@@ -167,7 +172,7 @@ function populateParksByState(selectedState){
             const row = document.createElement("tr");
             row.appendChild(createCell(park.LocationName));
             row.appendChild(createCell(park.Address));
-            if(park.Visit > 0){
+            if(park.Visit){
             row.appendChild(createVisitLink(park.Visit));
         } else {
             row.appendChild(createCell(park.Visit));
@@ -219,7 +224,11 @@ function populateParksByType(selectedParkType) {
             const row = document.createElement("tr");
             row.appendChild(createCell(park.LocationName));
             row.appendChild(createCell(park.Address));
-            row.appendChild(createCell(park.Visit));
+            if(park.Visit){
+                row.appendChild(createVisitLink(park.Visit));
+            } else {
+                row.appendChild(createCell(park.Visit));
+            }
             tbody.appendChild(row);
         });
 
