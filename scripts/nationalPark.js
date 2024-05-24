@@ -2,10 +2,12 @@
 
 
 
-
+// Let's define the radio buttons
 const onSearchByLocationBtn = document.getElementById("location");
 const onSearchByParkTypeBtn = document.getElementById("parkType");
 const onDisplayAllBtn = document.getElementById("displayAll");
+
+// Let's define the dropdown and result displaying divs
 const dropdownDisplay1  = document.getElementById("dropdownDisplay1");
 const dropdownDisplay2 = document.getElementById("dropdownDisplay2");
 const dropdownDisplay3 = document.getElementById("dropdownDisplay3");
@@ -33,14 +35,11 @@ function populateOptions() {
     if(onSearchByLocationBtn.checked){
         populateStateList();
     } 
-     if (onSearchByParkTypeBtn.checked){
+     else if (onSearchByParkTypeBtn.checked){
         populateParkTypeList();
     }
-     if (onDisplayAllBtn.checked){
+     else if (onDisplayAllBtn.checked){
         populateAllParks();
-    }
-    if (onSearchByLocationBtn.checked && onSearchByParkTypeBtn.checked) {
-        populateBothStateAndParkType();
     }
 }
 

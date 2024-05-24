@@ -1,6 +1,9 @@
 # EnjoyTheOutdoors
 This is my second capstone project made for Year Up Spring 2024 Application Development track.
 
+# About this Project
+"Enjoy the Outdoors" is a dedicated platform for nature enthusiasts and adventurers alike, offering comprehensive resources on national parks and mountains across the United States. Users can easily access information about national parks by searching based on their location or by the type of park they are interested in exploring.
+
 # Pictures of the Front Page
 <figure>
     <img src="images/READMEImages/FrontPageFrontHeroSection.jpg"

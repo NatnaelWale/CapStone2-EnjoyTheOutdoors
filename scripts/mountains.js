@@ -1,12 +1,17 @@
 "use strict";
 
+
 const mountainsListRow = document.getElementById("mountainsListRow");
 
+window.onload = () => {
 
 mountainsArray.forEach((mountain, index) => {
     let mountainColumnElement = createMountainColumnElement(mountain, index);
     mountainsListRow.appendChild(mountainColumnElement);
+
 });
+};
+
 
 
  function createMountainColumnElement(mountain, index) {
@@ -16,7 +21,7 @@ mountainsArray.forEach((mountain, index) => {
 
     // Create a card element to display the mountains
     let mountainCardDiv = document.createElement("div");
-    mountainCardDiv.className = "card mountain-card shadow";
+    mountainCardDiv.className = "card shadow";
 
     // Append the card to the column div
     mountainColumnDiv.appendChild(mountainCardDiv);
